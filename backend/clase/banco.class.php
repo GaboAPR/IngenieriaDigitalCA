@@ -15,6 +15,9 @@ require_once("utilidad.class.php");
 
 class banco extends utilidad
 {
+   public $cod_ban;
+   public $nom_ban;
+   public $est_ban;
 
 //==============================================================================
    public function agregar(){
@@ -32,7 +35,7 @@ class banco extends utilidad
 //==============================================================================
 
    public function listar(){
-   		$sql="select * from _________ where ;";
+   		$sql="select * from banco where est_ban='$this->est_ban';";
    		return $this->ejecutar($sql);
    	
    }//Fin Listar 

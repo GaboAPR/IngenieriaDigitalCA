@@ -50,10 +50,17 @@ class opcion_rol extends utilidad
    }//Fin Cambio Estatus   
 //==============================================================================
 
-   public function filtrar(){
+   public function filtrar($fky_opcion,$fky_rol,$est_opc_rol){
 
-   		$sql="select * from __________ where ;";
-   	    return $this->ejecutar($sql);  
+        $where="where 1=1";
+        
+        $filtro1 = ($fky_opcion!="") ? "and fky_opcion=$fky_opcion":"";
+        $filtro2 = ($fky_rol!="") ? "and fky_rol='$fky_rol'":"";
+        $filtro3 = ($est_opc_rol!="") ? "and est_opc_rol='$est_opc_rol'":"";
+
+         $sql="select * from opcion_rol $where $filtro1 $filtro2 $filtro3;";
+
+         return $this->ejecutar($sql); 
 
    }// Fin Filtrar
 //==============================================================================
